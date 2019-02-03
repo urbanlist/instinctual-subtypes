@@ -1,10 +1,13 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
 
-module.exports = (env) => {
-  const isDevBuild = !(env && env.prod);
+module.exports = (env, argv) => {
+  const isDevBuild = argv.mode == "development";
 
   return {
     mode: isDevBuild ? "development" : "production",
@@ -19,23 +22,15 @@ module.exports = (env) => {
         test: /\.js$/,
         loader: "source-map-loader"
       }, {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'].concat(isDevBuild ? [] : ['postcss-loader'])
-      }, {
         test: /\.styl$/,
-        use: isDevBuild ? 
-          ['style-loader', 'css-loader', 'stylus-loader'] : 
-          ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: ['css-loader', 'stylus-loader', 'postcss-loader']
-          })
+        use: isDevBuild ? ['style-loader', 'css-loader', 'stylus-loader'] : [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
       }, {
         test: /\.(gif|png|jpe?g|svg|ttf|mp3|ogg|wav)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
           publicPath: '/',
-          outputPath: isDevBuild ? './' : '../'
+          outputPath: './'
         }
       }]
     },
@@ -47,18 +42,29 @@ module.exports = (env) => {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist')
     },
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true
+        }),
+        new OptimizeCSSAssetsPlugin({})
+      ]
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(__dirname, "public", "index.html"),
         filename: "./index.html"
       }),
+      new CleanWebpackPlugin(['dist']),
     ].concat(isDevBuild ? [
       new webpack.HotModuleReplacementPlugin()
     ] : [
-      new webpack
-      .optimize
-      .UglifyJsPlugin(),
-      new ExtractTextPlugin('app.css')
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      })
     ]),
     devServer: {
       hot: true,
