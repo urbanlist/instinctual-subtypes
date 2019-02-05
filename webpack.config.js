@@ -75,7 +75,7 @@ module.exports = (env, argv) => {
       historyApiFallback: {
         rewrites: [{
           from: /(\w+|\/)/,
-          to: path.join(__dirname, './index.html')
+          to: './index.html'
         }, ]
       },
     },
