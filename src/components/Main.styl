@@ -1,0 +1,54 @@
+@import '../styles/common'
+
+.main
+  position relative
+  margin 0 auto
+  margin-top 50px
+  .center
+    margin 0 auto
+    common-max-width()
+  .banner
+    position relative
+    height 350px
+    .background
+      position absolute
+      opacity 1
+      width 100%
+      height 100%
+      background-image url(../../assets/main-concept.jpg)
+      background-size 100%
+      overflow hidden
+      z-index -1
+    .container
+      position relative
+      color white
+      height calc(100% - 40px)
+      padding 20px
+      .info
+        margin-top 20px
+        margin-left 20px
+        h2
+          margin-bottom 50px
+          padding 4px
+          background-color color5
+          font-size 1rem
+          display inline-block
+        h3
+          p
+            font-weight 700
+            display inline-block
+            padding 4px
+            background-color color5
+            font-size 1rem
+            line-height 1.5rem
+        button
+          margin-top 50px
+          border none
+          background-color white
+          color color5
+          padding 12px 24px
+          font-size 1rem
+  .content
+    .title
+      margin-top 20px
+      font-weight 700

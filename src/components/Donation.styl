@@ -1,0 +1,64 @@
+@import '../styles/common'
+
+.donation
+  margin-top main-margin-top
+  .banner
+    position relative
+    background-color rgb(20,20,20)
+    height 200px
+    flex-center()
+    .background
+      position absolute
+      background-image url(../../assets/voice.jpg)
+      background-size cover
+      width 100%
+      height 200px
+      common-max-width()
+    .voice
+      position relative
+      top 5px
+      padding-left 20px
+      padding-right 20px
+      .title
+        position relative
+        margin 0 auto
+        text-align center
+        display inline-block
+        padding 20px
+        color color5
+        font2()
+        background-color rgba(255,255,255,0.8)
+        border-radius 10px
+        span
+          white-space nowrap
+      .tail
+        width 0px
+        height 0px
+        border-left 10px solid rgba(255,255,255,0.8)
+        border-top 5px solid rgba(255,255,255,0.8)
+        border-bottom 5px solid transparent
+        border-right 10px solid transparent
+        position relative
+        left 15px
+  .content
+    .container
+      margin 0 auto
+      common-max-width()
+      .account
+        text-align center
+        margin-top 20px
+        span
+          white-space nowrap
+      .share
+        margin-top 20px
+        background-color rgb(200,200,200)
+        padding 20px
+        flex-center()
+        .title
+          margin 0 auto
+          text-align center
+          width 200px
+        .buttons
+          button
+            padding 10px
+            margin 2px
