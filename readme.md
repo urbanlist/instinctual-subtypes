@@ -1,4 +1,6 @@
-# startkit stack
+# Typescript + React + Webpack + Stylus Startkit
+
+## startkit stack
 - webpack4
 - react
 - react-router
@@ -7,7 +9,7 @@
 - yarn
 - autoprefixer
 
-# feature
+## feature
 - HMR
 - production
 - Upload Azure blob Storage in script
