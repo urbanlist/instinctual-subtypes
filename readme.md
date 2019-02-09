@@ -10,3 +10,5 @@
 # feature
 - HMR
 - production
+- Upload Azure blob Storage in script
+  - `yarn publish`

@@ -1,11 +1,11 @@
 {
-  "name": "VoiceOfEarpFrontEnd",
+  "name": "huinalam-typescript-react-webpack4-stylus-startkit",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production && python publish.py"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.7",

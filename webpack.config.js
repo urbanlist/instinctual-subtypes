@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          publicPath: '/',
+          publicPath: '/', // if use azure blob storage, input https://***.blob.core.windows.net/static/home/
           outputPath: './'
         }
       }]
@@ -75,7 +75,7 @@ module.exports = (env, argv) => {
       historyApiFallback: {
         rewrites: [{
           from: /(\w+|\/)/,
-          to: './index.html'
+          to: '/index.html'
         }, ]
       },
     },
