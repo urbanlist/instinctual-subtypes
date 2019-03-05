@@ -29,7 +29,15 @@ module.exports = (env, argv) => {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          publicPath: '/', // if use azure blob storage, input https://***.blob.core.windows.net/static/home/
+          publicPath: '/', 
+          // if want to external blob server
+          // publicPath: (url, resourcePath, context) => {
+          //   if (isDevBuild) {
+          //     return `/${url}`;
+          //   } else {
+          //     return `https://external-url/${url}`;
+          //   }
+          // },
           outputPath: './'
         }
       }]
