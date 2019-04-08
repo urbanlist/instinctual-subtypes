@@ -1,13 +1,14 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "experimentalDecorators": true,
-      "lib": ["es2015", "es2016", "dom"]
-    },
-    "include": ["./src/**/*"]
-  }
+  "compilerOptions": {
+    "incremental": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "lib": ["es2015", "es2016", "dom"]
+  },
+  "include": ["./src/**/*"]
+}

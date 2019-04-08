@@ -1,10 +1,10 @@
 # Typescript + React + Webpack + Stylus Startkit
 
 ## startkit stack
-- webpack4
+- webpack v4
 - react
 - react-router
-- typescript
+- typescript v3.4
 - stylus
 - yarn
 - autoprefixer
