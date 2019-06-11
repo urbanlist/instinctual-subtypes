@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production && python publish.py"
+    "build": "webpack --mode=production && python publish.py",
+    "test": "jest",
+    "func": "ts-node -p test/run-single-func.func.ts"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.7",
@@ -25,9 +27,12 @@
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "jest": "^24.8.0",
     "terser-webpack-plugin": "^1.2.1",
     "ts-loader": "^5.3.3",
+    "ts-node": "^8.2.0",
     "typescript": "3.4.2",
+    "ts-jest": "^24.0.2",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
@@ -36,6 +41,7 @@
   "dependencies": {
     "@types/classnames": "^2.2.7",
     "@types/dotenv": "^6.1.0",
+    "@types/jest": "^24.0.13",
     "@types/react": "^16.8.1",
     "@types/react-dom": "^16.0.11",
     "@types/react-router": "^4.4.3",
@@ -44,5 +50,20 @@
     "nib": "^1.1.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "enableTsDiagnostics": true
+      }
+    }
   }
 }
