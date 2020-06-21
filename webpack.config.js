@@ -21,6 +21,16 @@ module.exports = (env, argv) => {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
+      },{
+        test: /\.scss$/,
+        use: isDevBuild
+          ? ["style-loader", "css-loader", "sass-loader"]
+          : [
+              MiniCssExtractPlugin.loader,
+              "css-loader",
+              "postcss-loader",
+              "sass-loader"
+            ]
       }, {
         test: /\.styl$/,
         use: isDevBuild ? ['style-loader', 'css-loader', 'stylus-loader'] : [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
