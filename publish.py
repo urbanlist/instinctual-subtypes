@@ -24,17 +24,18 @@ storage_account_key = data['storage_account_key']
 block_blob_service = BlockBlobService(account_name=storage_name, account_key=storage_account_key)
 table_service = TableService(account_name=storage_name, account_key=storage_account_key)
 
-def upload(print_msg, blob_path, file_path):
-    print('upload: {0}'.format(print_msg))
+def upload(blob_path, file_path):
     block_blob_service.create_blob_from_path('static',
         blob_path,
         file_path,
         content_settings=ContentSettings(content_type=mimetypes.guess_type(file_path)[0]))
 
 ## upload js, css, etc...
+prefix_name = 'home'
 asset_folder_path = os.getcwd() + '\\dist'
 for root, dirs, files in os.walk(asset_folder_path, topdown=False):
     for name in files:
         relative_path = root.replace(asset_folder_path, '').replace('\\', '/') + '/' + name
         full_path = root + '\\' + name
-        upload(relative_path, 'home' + relative_path, full_path)
+        print('upload: {0}'.format(relative_path))
+        upload(relative_path, prefix_name + relative_path, full_path)
