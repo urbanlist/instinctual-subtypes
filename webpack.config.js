@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
 const webpack = require('webpack');
 
 module.exports = (env, argv) => {
@@ -15,31 +17,31 @@ module.exports = (env, argv) => {
     module: {
       rules: [{
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+        },
+        exclude: /node_modules/,
       }, {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
-      },{
+      }, {
         test: /\.scss$/,
-        use: isDevBuild
-          ? ["style-loader", "css-loader", "sass-loader"]
-          : [
-              MiniCssExtractPlugin.loader,
-              "css-loader",
-              "postcss-loader",
-              "sass-loader"
-            ]
+        use: isDevBuild ?
+          ["style-loader", "css-loader", "sass-loader"] :
+          [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
       }, {
         test: /\.styl$/,
-        use: isDevBuild ? ['style-loader', 'css-loader', 'stylus-loader'] : [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
+        use: isDevBuild ?
+          ['style-loader', 'css-loader', 'stylus-loader'] :
+          [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'stylus-loader']
       }, {
         test: /\.(gif|png|jpe?g|svg|ttf|mp3|ogg|wav)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          publicPath: '/', 
+          publicPath: '/',
           // if want to external blob server
           // publicPath: (url, resourcePath, context) => {
           //   if (isDevBuild) {
@@ -79,11 +81,11 @@ module.exports = (env, argv) => {
     ].concat(isDevBuild ? [
       new webpack.HotModuleReplacementPlugin()
     ] : [
-      new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css"
-      })
-    ]),
+        new MiniCssExtractPlugin({
+          filename: "[name].css",
+          chunkFilename: "[id].css"
+        })
+      ]),
     devServer: {
       hot: true,
       contentBase: [path.join(__dirname, 'public'), path.join(__dirname, 'assets')],
@@ -94,7 +96,7 @@ module.exports = (env, argv) => {
         rewrites: [{
           from: /(\w+|\/)/,
           to: '/index.html'
-        }, ]
+        },]
       },
     },
   }
