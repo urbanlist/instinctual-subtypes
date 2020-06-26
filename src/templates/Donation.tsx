@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './Donation.styl';
 
 export interface DonationProps {
 }

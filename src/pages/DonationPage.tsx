@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Header from '../components/Header';
-import Donation from '../components/Donation';
-import Footer from '../components/Footer';
+import HeaderTemplate from '../templates/HeaderTemplate';
+import Donation from '../templates/Donation';
+import FooterTemplate from '../templates/FooterTemplate';
 
 
 export interface DonationPageProps {
@@ -11,9 +11,9 @@ export default class DonationPage extends React.Component<DonationPageProps, any
   public render() {
     return (
       <div className="donation-page">
-        <Header />
+        <HeaderTemplate />
         <Donation />
-        <Footer />
+        <FooterTemplate />
       </div>
     );
   }

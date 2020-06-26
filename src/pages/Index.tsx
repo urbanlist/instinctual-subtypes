@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MainPage from './MainPage';
+import MainPage from './main/MainPage';
 import DonationPage from './DonationPage';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 
