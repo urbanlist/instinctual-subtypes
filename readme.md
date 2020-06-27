@@ -6,6 +6,25 @@
 
 2. `yarn start`
 
+## git roles
+
+### barnch roles
+
+- `master`
+- `topic` : 이슈나 PR 등 여러 형식에 활용한다.
+  - `topic/{number}`: 이슈나 PR 등 번호 지정
+
+### Commit Roles
+
+```
+#{이슈번호} {커밋 목적 요약}
+
+{수정 항목, 의도 등 디테일한 내용}
+```
+
+- 이슈 번호가 없을 경우는 생략한다.
+
+
 ## startkit stack
 - webpack v4
 - react / react-router
