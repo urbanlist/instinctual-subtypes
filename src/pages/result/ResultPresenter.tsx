@@ -1,6 +1,5 @@
 import * as React from 'react';
 import HeaderTemplate from '../../templates/HeaderTemplate';
-import Donation from '../../templates/Donation';
 import FooterTemplate from '../../templates/FooterTemplate';
 
 
@@ -12,7 +11,6 @@ export default class ResultPresenter extends React.Component<IResultPresenterPro
     return (
       <>
         <HeaderTemplate />
-        <Donation />
         <FooterTemplate />
       </>
     );

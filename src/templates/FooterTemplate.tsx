@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './Footer.styl';
 
 export interface FooterProps {
 }
