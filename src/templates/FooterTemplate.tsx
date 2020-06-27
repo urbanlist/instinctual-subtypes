@@ -4,7 +4,7 @@ import './Footer.styl';
 export interface FooterProps {
 }
 
-export default class Footer extends React.Component<FooterProps, any> {
+export default class FooterTemplate extends React.Component<FooterProps, any> {
   public render() {
     return (
       <div className="footer">

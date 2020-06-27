@@ -4,7 +4,7 @@ import './Newsletter.styl';
 export interface NewsletterProps {
 }
 
-export default class Newsletter extends React.Component<NewsletterProps, any> {
+export default class NewsletterTemplate extends React.Component<NewsletterProps, any> {
   public render() {
     return (
       <div className="newsletter">

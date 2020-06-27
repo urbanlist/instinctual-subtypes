@@ -1,4 +1,10 @@
-# Typescript + React + Webpack + Stylus Startkit
+# 에니어그램 하위유형 테스트
+
+## 설정
+
+1. `yarn install`
+
+2. `yarn start`
 
 ## startkit stack
 - webpack v4

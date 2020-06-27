@@ -5,7 +5,7 @@ import './Header.styl';
 export interface HeaderProps {
 }
 
-export default class Header extends React.Component<HeaderProps, any> {
+export default class HeaderTemplate extends React.Component<HeaderProps, any> {
   public render() {
     return (
       <div className="header">

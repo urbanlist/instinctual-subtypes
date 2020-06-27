@@ -9,9 +9,9 @@ class MainPage extends React.Component<object, object> {
 
   render() {
     return (
-      <>
+      <div>
         <MainContainer/>
-      </>
+      </div>
     )
   }
 }

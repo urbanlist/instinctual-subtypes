@@ -5,13 +5,13 @@ import './Main.styl';
 export interface MainProps {
 }
 
-export default class Main extends React.Component<MainProps, any> {
+export default class MainTemplate extends React.Component<MainProps, any> {
   public render() {
     return (
       <div className="main">
         <div className="banner">
-          <Link to="/donation">
-            <button>후원자로 참가하기</button>
+          <Link to="/question">
+            <button>시작하기??!!</button>
           </Link>
         </div>
         <div className="content center">
